@@ -1,97 +1,25 @@
-<h1>Welcome to my webpage</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+</head>
+<body>
+<h1>Random Number</h1>
 
-<label>Choose a Snack:</label>
-
-<select id="snack" onchange="snackPriceCal()"> 
-<option>NONE</option>
-<option value= "chips" data-price="1.50">chips [$1.50]</option>
-<option value= "cookies" data-price="2.00">cookies [$2.00]</option>
-
-
-
-</select>
-<br>
-
-<label>Choose a Drink:</label>
-
-<select id="drink" onchange="drinkPriceCal()"> 
-<option>NONE</option>
-<option value= "fanta" data-price="1.50">fanta [$1.50]</option>
-<option value= "coke" data-price="2.00">coke [$2.00]</option>
-
-
-
-</select>
-
-
-
-
-<p id = "total">Snack Price: $0.00</p>
-
-<p id = "totalDrink">Drink Price: $0.00</p>
-
-<p id = "totalAll">Total Price: $0.00</p>
-
-
-
+<p id="randomNumber">Your random number will appear here!</p>
 
 <script>
+  //random number
 
-function snackPriceCal(){
-//step-1: identify the dropdown (select tag)
+let randomNumber = Math.floor((Math.random()*900)+100) // create a 3 digit random number: 100 to 999
+// Math.random() picks a number starting at 0 (inclusive) and 1 (exclusive)
 
-const dropdown = document.querySelector("#snack")
-
-//step-2: 
-const selectedOption = dropdown.options[dropdown.selectedIndex]
-
-//step-3: 
-const snackPrice = selectedOption.getAttribute("data-price")
-
-//step-4:
-const actualPrice = parseFloat(snackPrice)
-
-//step-5:
-const formattedPrice = actualPrice.toFixed(2)
-
-//step-6:
-
-const totalPrice = document.getElementById("total").textContent = "Snack Price: $"+ formattedPrice
-
-// calling the totalPriceCal function to update the price
-totalPriceCal()
-
-}
-
-function drinkPriceCal(){
-//step-1: identify the dropdown (select tag)
-
-const dropdown = document.querySelector("#drink")
-
-//step-2: 
-const selectedOption = dropdown.options[dropdown.selectedIndex]
-
-//step-3: 
-const drinkPrice = selectedOption.getAttribute("data-price")
-
-//step-4:
-const actualPrice = parseFloat(drinkPrice)
-
-//step-5:
-const formattedPrice = actualPrice.toFixed(2)
-
-//step-6:
-
-const totalPrice = document.getElementById("totalDrink").textContent = "Drink Price: $"+ formattedPrice
+document.getElementById("randomNumber").textContent = "The random number is: "+randomNumber
 
 
-totalPriceCal()
-
-}
-
-// total price of drink and snack calculator
-function totalPriceCal(){
-
-}
 
 </script>
+</body>
+</html>
